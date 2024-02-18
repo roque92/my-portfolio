@@ -1,0 +1,169 @@
+.kode-mono-font {
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+body {
+    background: darkred;
+}
+
+.main {
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.img {
+    width: 100%;
+    height: 99vh;
+}
+
+.container {
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mainTitle {
+    font-size: 3vw;
+    font-family: "Kode Mono", monospace;
+    animation: glicht 1s linear infinite;
+}
+
+/*Animation begin*/
+@keyframes glitch {
+    2%, 64% {
+        transform: translate(2px, 0) skew(0deg);
+    }
+    4%, 60% {
+        transform: translate(-2px, 0) skew(0deg);
+    }
+    62% {
+        transform: translate(0, 0) skew(5deg);
+    }
+}
+
+.mainTitle:before,
+.mainTitle:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+}
+
+.mainTitle:before {
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop {
+    2%, 64% {
+        transform: translate(2px, -2px);
+    }
+    4%, 60% {
+        transform: translate(-2px, 2px);
+    }
+    62% {
+        transform: translate(13px, -1px) skew(-13deg);
+    }
+}
+
+.mainTitle:after {
+    animation: glitchBottom 1.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBottom {
+    2%, 64% {
+        transform: translate(-2px, 0);
+    }
+    4%, 60% {
+        transform: translate(-2px, 0);
+    }
+    62% {
+        transform: translate(-22px, 5px) skew(21deg);
+    }
+}
+
+/*Animation ends*/
+
+.loginForm {
+    padding: 5px;
+}
+
+.input {
+    margin: 15px auto;
+}
+
+.inputUsername {
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 2vw;
+    outline: none;
+    cursor: text;
+    transition: 0.5s;
+}
+
+.inputUsername:focus {
+    box-shadow: 10px 5px 5px white;
+}
+
+.login {
+    margin: 2px auto;
+}
+
+.loginButton {
+    background: darkorange;
+    border-radius: 10px;
+    font-size: 2vw;
+    width: 8vw;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.loginButton:hover {
+    background: firebrick;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.loginButton:active {
+    cursor: wait;
+}
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s;
+    margin-bottom: 15px;
+}
+
+.alert.warning {
+    background-color: #ff9800;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 1.2vw;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 0.8vw;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+

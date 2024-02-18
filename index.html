@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador de Texto</title>
+    <!--stylesheet-->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <!--scritp-->
+    <script src="js.js"></script>
+    <!--font import-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<main>
+    <div class="main">
+        <div class="bgImage"><img class="img" src="img/bg.jpg" alt="Backgroud Image"></div>
+        <section class="container">
+
+            <h1 class="mainTitle" title="Encription Message System">
+                Encription Message System
+            </h1>
+            <h1 class="mainTitle">
+                EMS
+            </h1>
+            <form class="loginForm">
+                <section class="input">
+                    <input type="text" name="username" id="username" CLASS="inputUsername" placeholder="Enter Username"
+                           autocomplete="False">
+                    <label for="username" class="label"></label>
+
+                </section>
+                <section class="login">
+                    <label for="login"></label>
+                    <button type="button" name="login" id="login" value="Login" class="loginButton"
+                           onclick="getUsername()">login</button>
+                </section>
+            </form>
+            <div class="alert warning" id="alert">
+                <span class="closebtn" id="closebtn" onclick="closeAlert(this)">&times;</span>
+                <strong>Warning!</strong> You must have to enter a username to continue.
+            </div>
+        </section>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Encriptador de Texto</title>
+
+    <!--metadata-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
+
+    <!--stylesheet-->
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/style.css">
+
+    <!--scritp-->
+    <script src="../logic/index.js"></script>
+
+    <!--font import-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+<body class="indexBody">
+<main>
+    <div class="main">
+        <div class="bgImage"><img class="img" src="../img/bg.jpg" alt="Backgroud Image"></div>
+        <section class="container">
+
+            <h1 class="mainTitle" title="Encription Message System">
+                Encription Message System
+            </h1>
+            <h1 class="mainTitle">
+                EMS
+            </h1>
+            <form class="loginForm" id="loginForm">
+                <section class="input">
+                    <input type="text" name="username" id="username" CLASS="inputUsername" placeholder="Enter Username"
+                           autocomplete="False">
+                    <label for="username" class="label"></label>
+
+                </section>
+                <section class="login">
+                    <label for="login"></label>
+                    <button type="submit" name="login" id="login" class="loginButton"
+                           onclick="getUsername()" >login</button>
+                </section>
+            </form>
+            <div class="alert warning" id="alert">
+                <span class="closebtn" id="closebtn" onclick="closeAlert(this)">&times;</span>
+                <strong>Warning!</strong> You must have to enter a username to continue.
+            </div>
+        </section>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Title</title>
+
+    <!--metadata-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
+
+    <!--stylesheet-->
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/welcomeStyle.css">
+
+    <!--scrpti-->
+    <script src="../logic/welcome.js"></script>
+
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+
+</head>
+<body class="welcomeBody">
+<main class="mainContent">
+    <h1 class="welcomeTitle">Welcome <span class="showUsername"></span> to EMS</h1>
+    <section class="mainSection">
+        <section class="textEncript">
+            <div class="outButton">
+                <button type="submit" class="out">Sign out</button>
+            </div>
+            <div class="textArea">
+                <label for="text"></label>
+                <textarea id="text" class="text" typeof="" placeholder="Type here..."></textarea>
+            </div>
+        </section>
+        <section class="actionButtons">
+            <div class="attentionArae">
+                <span class="material-symbols-outlined">error</span>
+                <label class="attentionText">only lower case letters</label>
+            </div>
+            <div class="buttonsArea">
+                <form class="formButton">
+                    <button type="submit" class="encript">Encript</button>
+                    <button type="submit" class="deEncript">De-encript</button>
+                </form>
+            </div>
+        </section>
+    </section>
+    <section class="secondarySection">
+
+    </section>
+</main>
+</body>
+</html>

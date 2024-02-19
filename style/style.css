@@ -1,0 +1,116 @@
+.kode-mono-font {
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+/*Index*/
+
+.indexBody {
+    background: darkred;
+}
+
+.main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.img {
+    width: 100vw;
+    height: 99vh;
+}
+
+.container {
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+}
+
+.mainTitle {
+    font-size: 30px;
+    font-family: "Kode Mono", monospace;
+    }
+
+
+.loginForm {
+    padding: 5px;
+}
+
+.input {
+    margin: 15px auto;
+}
+
+.inputUsername {
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+    outline: none;
+    cursor: text;
+    transition: 0.5s;
+}
+
+.inputUsername:focus {
+    box-shadow: 10px 5px 5px white;
+    transform: scale(1.1);
+}
+
+.login {
+    margin: 2px auto;
+}
+
+.loginButton {
+    background: darkorange;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.loginButton:hover {
+    background: firebrick;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.loginButton:active {
+    cursor: wait;
+}
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s;
+    margin-bottom: 15px;
+}
+
+.alert.warning {
+    background-color: #ff9800;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 1.2vw;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 25px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}

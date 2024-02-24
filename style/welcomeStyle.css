@@ -16,10 +16,11 @@
     background-color: var(--background);
     font-family: "VT323", monospace;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     align-content: center;
-    overflow: auto;
+    /*overflow: auto;*/
+    scroll-behavior: smooth;
 }
 
 .mainContent {
@@ -63,7 +64,7 @@
 
 }
 
-.text {
+.userText {
     width: 83vw;
     height: 61.5vh;
     resize: none;
@@ -81,7 +82,7 @@
     color: white;
 }
 
-.text:focus {
+.userText:focus {
     color: white;
     outline: none;
     text-align: left;
@@ -132,8 +133,23 @@
     padding: 8px;
     transition: 1s;
 }
-.deEncript:hover, .encript:hover{
+.deEncript:hover,
+:focus,
+.encript:hover,
+:focus{
     transform: scale(1.2);
     color: white;
     font-weight: bold;
+}
+
+/* Area of final text */
+
+.secondarySection{
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--accent);
+    opacity: 0;
+    border-radius: 5px;
+    transition: 1s;
 }

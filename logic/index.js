@@ -1,3 +1,4 @@
+//get and save the username
 function getUsername(event) {
     let username = document.getElementById("username").value;
     let viewAlert = document.getElementById("alert");

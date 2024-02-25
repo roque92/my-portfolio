@@ -103,7 +103,7 @@
 
 }
 
-.attentionArae {
+.attentionArea {
     display: flex;
     align-content: center;
     color: white;
@@ -136,13 +136,6 @@
     font-size: 20px;
     padding: 8px;
     transition: 1s;
-}
-
-.encript:hover,
-:focus {
-    transform: scale(1.2);
-    color: white;
-    font-weight: bold;
 }
 
 /* Area of final text */

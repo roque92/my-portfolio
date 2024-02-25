@@ -7,6 +7,11 @@ window.onload = function () {
     valueField.textContent = recoverUsername;
     localStorage.clear();
 
+    let buttonEncript = document.getElementById('encript');
+    let buttonDeEncript = document.getElementById('deEncript');
+
+    buttonEncript.onclick = encription;
+    buttonDeEncript.onclick = deEncription;
 
 }
 
@@ -16,52 +21,76 @@ let flag = false;
 function textValidation() {
     let areaValidation = document.getElementById('userText').value.toLowerCase().trim();
 
-    if (areaValidation.includes('ai')) {
+    let specialCharacters = /[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~]/;
+    let numbers = /[0-9]/;
+
+
+    if (areaValidation.includes('ai') || areaValidation.includes('enter') || areaValidation.includes('imes') || areaValidation.includes('ober') ||
+        areaValidation.includes('ufat')) {
         flag = true;
         enableButtonDeEncript();
-    } else if (areaValidation.includes('enter')) {
-        flag = true;
-        enableButtonDeEncript();
-    } else if (areaValidation.includes('imes')) {
-        flag = true;
-        enableButtonDeEncript();
-    } else if (areaValidation.includes('ober')) {
-        flag = true;
-        enableButtonDeEncript();
-    } else if (areaValidation.includes('ufat')) {
-        flag = true;
-        enableButtonDeEncript();
+    } else if (numbers.test(areaValidation) || specialCharacters.test(areaValidation)) {
+        //create alert
+        cleanText();
     } else {
         encriptButton();
     }
-
 }
 
 // Encript Message
-function encription(evt) {
-    let finalText = document.getElementById('userText').value.toLowerCase().trim();
-    let form = document.getElementById('formButton');
-    form.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-        alert(finalText);
+function encription() {
+    // get the text on the textArea
+    let text = document.getElementById('userText').value.toLowerCase().trim();
+    let finalText = "";
 
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] === 'a') {
+            finalText += 'ai';
+        } else if (text[i] === 'e') {
+            finalText += 'enter';
+        } else if (text[i] === 'i') {
+            finalText += 'imes';
+        } else if (text[i] === 'o') {
+            finalText += 'ober';
+        } else if (text[i] === 'u') {
+            finalText += 'ufat';
+        } else {
+            finalText += text[i];
+        }
+    }
 
-    })
-
+    alert(finalText);
+    cleanText();
 }
 
 
 //De-Encript Messaage
-function deEncription(event) {
-    let finalText = document.getElementById('userText').value.toLowerCase().trim();
-    let form = document.getElementById('formButton');
-    form.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-        alert(finalText);
-        cleanText();
+function deEncription() {
+    let text = document.getElementById('userText').value.toLowerCase().trim();
+    let finalText = "";
 
-    })
-
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] === 'a') {
+            finalText += 'a';
+            i += 1;
+        } else if (text[i] === 'e') {
+            finalText += 'e';
+            i += 4;
+        } else if (text[i] === 'i') {
+            finalText += 'i';
+            i += 3;
+        } else if (text[i] === 'o') {
+            finalText += 'o';
+            i += 3;
+        } else if (text[i] === 'u') {
+            finalText += 'u';
+            i += 3;
+        } else {
+            finalText += text[i];
+        }
+    }
+    alert(finalText);
+    cleanText();
 
 }
 
@@ -81,7 +110,7 @@ function moveScreenDown() {
 
 //scrollPageUp
 function moveScreenUp() {
-    let interval = setTimeout(moveScreenDown, 200);
+    let interval = setTimeout(moveScreenUp, 200);
 
     window.scrollBy({
         top: 0,
@@ -94,7 +123,7 @@ function moveScreenUp() {
 
 }
 
-//Enable buttons
+//Enable button
 function enableButtonDeEncript() {
     if (flag) {
         let buttonDeEncript = document.getElementById('deEncript');

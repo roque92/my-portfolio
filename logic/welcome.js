@@ -1,3 +1,4 @@
+//on window event
 window.onload = function () {
     let recoverUsername = localStorage.getItem("username");
 
@@ -6,45 +7,58 @@ window.onload = function () {
     valueField.textContent = recoverUsername;
     localStorage.clear();
 
-
-
 }
-// Encript Message
-function encript(event) {
-    let finalText = document.getElementById("userText").value;
-    let buttons = document.getElementById("formButton")
-    let secondarySection = document.getElementById("secondarySection");
-    let body = document.getElementById("welcomeBody");
 
-    if (finalText ===""){
-        //create alert
-    } else {
-        //only if the
-        buttons.addEventListener("submit",function (e) {
-            e.preventDefault();
-            secondarySection.style.opacity = '1';
-            secondarySection.style.width = '86vw'
-            secondarySection.style.height = '95vh'
-            moveScreenDown();
+let flag = false;
 
-        })
+// on focus event text area
+function textValidation() {
+    let areaValidation = document.getElementById('userText').value.toLowerCase().trim();
+
+    if (areaValidation.includes('ai')) {
+        flag = true;
+        enableButtonDeEncript();
+    } else if (areaValidation.includes('enter')) {
+        flag = true;
+        enableButtonDeEncript();
+    } else if (areaValidation.includes('imes')) {
+        flag = true;
+        enableButtonDeEncript();
+    } else if (areaValidation.includes('ober')) {
+        flag = true;
+        enableButtonDeEncript();
+    } else if (areaValidation.includes('ufat')) {
+        flag = true;
+        enableButtonDeEncript();
     }
 
+}
+
+// Encript Message
+function encription(evt) {
+    let finalText = document.getElementById('userText').value.toLowerCase().trim();
+    let form = document.getElementById('formButton');
+    form.addEventListener('submit', function (evt) {
+        evt.preventDefault();
+        alert(finalText);
 
 
+    })
 
 }
 
-//De-Encript Messaage
-function deEncript(event) {
-    let finalText = document.getElementById("userText").value;
-    let buttons = document.getElementById("formButton")
 
-    buttons.addEventListener("submit",function (e) {
-        e.preventDefault();
-        alert(finalText)
-        moveScreenUp();
+//De-Encript Messaage
+function deEncription(event) {
+    let finalText = document.getElementById('userText').value.toLowerCase().trim();
+    let form = document.getElementById('formButton');
+    form.addEventListener('submit', function (evt) {
+        evt.preventDefault();
+        alert(finalText);
+        cleanText();
+
     })
+
 
 }
 
@@ -76,3 +90,53 @@ function moveScreenUp() {
 
 
 }
+
+//Enable buttons
+function enableButtonDeEncript() {
+    if (flag) {
+        let buttonDeEncript = document.getElementById('deEncript');
+        let buttonEncript = document.getElementById('encript');
+
+
+        buttonDeEncript.removeAttribute('disabled');
+
+        //animation hover
+        buttonDeEncript.addEventListener("mouseover", ev =>
+            document.querySelector('.deEncript').animate(
+                [
+                    {transform: 'scale(1.2)'},
+                    {color: 'white'},
+                    {fontweight: 'bold'},
+                ],
+                {
+                    duration: 1000,
+                    direction: "reverse",
+
+                }
+            )
+        )
+
+        //animatiino focus
+        buttonDeEncript.addEventListener("focus", ev =>
+            document.querySelector('.deEncript').animate(
+                [
+                    {transform: 'scale(1.2)'},
+                    {color: 'white'},
+                    {fontweight: 'bold'},
+                ],
+                {
+                    duration: 1000,
+                    direction: "reverse",
+
+                }
+            )
+        )
+
+        buttonEncript.setAttribute('disabled', "");
+    }
+}
+
+function cleanText() {
+document.getElementById('userText').value = '';
+}
+

@@ -7,6 +7,7 @@ window.onload = function () {
     valueField.textContent = recoverUsername;
     localStorage.clear();
 
+
 }
 
 let flag = false;
@@ -30,6 +31,8 @@ function textValidation() {
     } else if (areaValidation.includes('ufat')) {
         flag = true;
         enableButtonDeEncript();
+    } else {
+        encriptButton();
     }
 
 }
@@ -100,7 +103,7 @@ function enableButtonDeEncript() {
 
         buttonDeEncript.removeAttribute('disabled');
 
-        //animation hover
+        //hover animation
         buttonDeEncript.addEventListener("mouseover", ev =>
             document.querySelector('.deEncript').animate(
                 [
@@ -116,7 +119,7 @@ function enableButtonDeEncript() {
             )
         )
 
-        //animatiino focus
+        //fcus animation
         buttonDeEncript.addEventListener("focus", ev =>
             document.querySelector('.deEncript').animate(
                 [
@@ -132,11 +135,48 @@ function enableButtonDeEncript() {
             )
         )
 
-        buttonEncript.setAttribute('disabled', "");
+        buttonEncript.setAttribute('disabled', "true");
     }
 }
 
+function encriptButton() {
+    let buttonEncript = document.getElementById('encript');
+
+    //hover animation
+    buttonEncript.addEventListener("mouseover", ev =>
+        document.querySelector('.encript').animate(
+            [
+                {transform: 'scale(1.2)'},
+                {color: 'white'},
+                {fontweight: 'bold'},
+            ],
+            {
+                duration: 1000,
+                direction: "reverse",
+
+            }
+        )
+    )
+
+    //focus animation
+    buttonEncript.addEventListener("focus", ev =>
+        document.querySelector('.encript').animate(
+            [
+                {transform: 'scale(1.2)'},
+                {color: 'white'},
+                {fontweight: 'bold'},
+            ],
+            {
+                duration: 1000,
+                direction: "reverse",
+
+            }
+        )
+    )
+
+}
+
 function cleanText() {
-document.getElementById('userText').value = '';
+    document.getElementById('userText').value = '';
 }
 

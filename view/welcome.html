@@ -28,13 +28,14 @@
 <main class="mainContent">
     <h1 class="welcomeTitle">Welcome <span class="showUsername"></span> to EMS</h1>
     <section class="mainSection">
-        <section class="textEncript">
+        <section class="textToEncript">
             <div class="outButton">
                 <button type="submit" class="out">Sign out</button>
             </div>
             <div class="textArea">
                 <label for="userText"></label>
-                <textarea id="userText" class="userText" typeof="" placeholder="Type here..."></textarea>
+                <textarea id="userText" class="userText" typeof="" placeholder="Type here..."
+                          onfocusout="textValidation()"></textarea>
             </div>
         </section>
         <section class="actionButtons">
@@ -44,16 +45,15 @@
             </div>
             <div class="buttonsArea">
                 <form class="formButton" id="formButton">
-                    <button type="submit" class="encript" onclick="encript()">Encript</button>
-                    <button type="submit" class="deEncript" onclick="deEncript()">De-encript</button>
+                    <button type="submit" class="encript" id="encript" onclick="encription()">Encript</button>
+                    <button type="submit" class="deEncript" id="deEncript" disabled onclick="deEncription()">De-encript
+                    </button>
                 </form>
             </div>
         </section>
     </section>
     <section class="secondarySection" id="secondarySection">
-        <div id="finalArea" class="finalArea">
 
-        </div>
     </section>
 </main>
 </body>

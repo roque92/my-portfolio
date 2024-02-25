@@ -59,7 +59,7 @@ function encription() {
         }
     }
 
-    alert(finalText);
+    // send the text to the final location
     cleanText();
 }
 
@@ -89,7 +89,7 @@ function deEncription() {
             finalText += text[i];
         }
     }
-    alert(finalText);
+    // send the text to the final location
     cleanText();
 
 }

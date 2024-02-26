@@ -10,7 +10,7 @@ window.onload = function () {
     // button events
     let buttonEncript = document.getElementById('encript');
     let buttonDeEncript = document.getElementById('deEncript');
-    let signOutuser =  document.getElementById('out');
+    let signOutuser = document.getElementById('out');
 
     buttonEncript.onclick = encription;
     buttonDeEncript.onclick = deEncription;
@@ -116,7 +116,7 @@ function deEncription() {
 
 //pageScrollDown
 function moveScreenDown() {
-    let interval = setTimeout(moveScreenDown, 200);
+    let interval = setTimeout(moveScreenDown(), 200);
 
     window.scrollBy({
         top: window.innerHeight,
@@ -130,7 +130,7 @@ function moveScreenDown() {
 
 //scrollPageUp
 function moveScreenUp() {
-    let interval = setTimeout(moveScreenUp, 200);
+    let interval = setTimeout(moveScreenUp(), 200);
 
     window.scrollBy({
         top: 0,
@@ -241,8 +241,6 @@ function cleanAlert() {
     newMessage = `<span class="closebtn" onclick="closeAlert(this)">${span}</span>${alertMessage}`;
 
     document.querySelector('.alert').innerHTML = newMessage;
-
-
 
 }
 

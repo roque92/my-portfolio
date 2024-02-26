@@ -1,17 +1,20 @@
 //on window event
 window.onload = function () {
+
+    //recovver and use the username from index
     let recoverUsername = localStorage.getItem("username");
-
     let valueField = document.querySelector(".showUsername");
-
     valueField.textContent = recoverUsername;
     localStorage.clear();
 
+    // button events
     let buttonEncript = document.getElementById('encript');
     let buttonDeEncript = document.getElementById('deEncript');
+    let signOutuser =  document.getElementById('out');
 
     buttonEncript.onclick = encription;
     buttonDeEncript.onclick = deEncription;
+    signOutuser.onclick = signOut;
 
 }
 
@@ -261,3 +264,7 @@ function closeAlert(ele) {
     cleanAlert();
 }
 
+function signOut() {
+    window.location.href = "../index.html";
+
+}

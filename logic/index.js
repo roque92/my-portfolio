@@ -31,5 +31,5 @@ function closeAlert(ele) {
 
 //Navigate to the next HTML
 function nextPage() {
-    window.location.href = "welcome.html";
+    window.location.href = "view/welcome.html";
 }

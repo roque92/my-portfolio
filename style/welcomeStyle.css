@@ -21,9 +21,35 @@
     scroll-behavior: smooth;
 }
 
+.alert {
+    background-color: #f44336;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.alert.warning {
+    background-color: #ff9800;
+}
+
+.closebtn {
+    margin-left: 1.2vw;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 25px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
 .mainContent {
     margin: 10px;
-    padding: 15px;
+    padding: 10px;
 }
 
 .welcomeTitle {
@@ -59,14 +85,14 @@
 
 .textArea {
     width: 86vw;
-    height: 63vh;
+    height: 62vh;
     margin: 10px 5px 0 5px;
 
 }
 
 .userText {
     width: 83vw;
-    height: 61.5vh;
+    height: 60vh;
     resize: none;
     border: var(--primary);
     border-radius: 15px 15px 0 0;

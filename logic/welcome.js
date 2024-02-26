@@ -30,7 +30,7 @@ function textValidation() {
         flag = true;
         enableButtonDeEncript();
     } else if (numbers.test(areaValidation) || specialCharacters.test(areaValidation)) {
-        //create alert
+        enableAlert();
         cleanText();
     } else {
         encriptButton();
@@ -42,24 +42,40 @@ function encription() {
     // get the text on the textArea
     let text = document.getElementById('userText').value.toLowerCase().trim();
     let finalText = "";
+    let alertMessage = document.querySelector('.alert');
+    let span = document.querySelector('.closebtn');
 
-    for (let i = 0; i < text.length; i++) {
-        if (text[i] === 'a') {
-            finalText += 'ai';
-        } else if (text[i] === 'e') {
-            finalText += 'enter';
-        } else if (text[i] === 'i') {
-            finalText += 'imes';
-        } else if (text[i] === 'o') {
-            finalText += 'ober';
-        } else if (text[i] === 'u') {
-            finalText += 'ufat';
-        } else {
-            finalText += text[i];
+    let newMessage = '';
+
+    if (text == '') {
+        alertMessage = 'Enter a text to encript';
+        span = 'x';
+        newMessage = `<span class="closebtn" onclick="closeAlert(this)">${span}</span>${alertMessage}`;
+
+        document.querySelector('.alert').innerHTML = newMessage;
+        enableAlert();
+
+    } else {
+
+        for (let i = 0; i < text.length; i++) {
+            if (text[i] === 'a') {
+                finalText += 'ai';
+            } else if (text[i] === 'e') {
+                finalText += 'enter';
+            } else if (text[i] === 'i') {
+                finalText += 'imes';
+            } else if (text[i] === 'o') {
+                finalText += 'ober';
+            } else if (text[i] === 'u') {
+                finalText += 'ufat';
+            } else {
+                finalText += text[i];
+            }
         }
     }
 
     // send the text to the final location
+    alert(finalText);
     cleanText();
 }
 
@@ -90,6 +106,7 @@ function deEncription() {
         }
     }
     // send the text to the final location
+    alert(finalText);
     cleanText();
 
 }
@@ -207,5 +224,40 @@ function encriptButton() {
 
 function cleanText() {
     document.getElementById('userText').value = '';
+}
+
+function cleanAlert() {
+    let alertMessage = document.querySelector('.alert');
+    let span = document.querySelector('.closebtn');
+
+    let newMessage = '';
+
+    alertMessage = 'Warning! Number and Special Characters are not allowed.';
+    span = 'x';
+
+    newMessage = `<span class="closebtn" onclick="closeAlert(this)">${span}</span>${alertMessage}`;
+
+    document.querySelector('.alert').innerHTML = newMessage;
+
+
+
+}
+
+function enableAlert() {
+    let ele = document.getElementById('alert');
+
+    ele.style.padding = '20px';
+    ele.style.marginBottom = '15px';
+    ele.style.opacity = '1';
+
+}
+
+function closeAlert(ele) {
+
+    ele.parentElement.style.opacity = '0';
+    ele.parentElement.style.padding = '0';
+    ele.parentElement.style.marginBottom = '0';
+
+    cleanAlert();
 }
 

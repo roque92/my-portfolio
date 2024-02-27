@@ -25,39 +25,71 @@
 
 </head>
 <body class="welcomeBody" id="welcomeBody">
-<main class="mainContent">
+<!--Welcome, Alert & Signout Button-->
+<section id="topSection" class="topSection">
+    <!--Welcome Title-->
     <h1 class="welcomeTitle">Welcome <span class="showUsername"></span> to EMS</h1>
+    <!--Signout Button-->
+    <button type="button" class="signout" id="signout">Sign out</button>
+</section>
+<!--Alert-->
+<section class="alertButton">
     <div class="alert warning" id="alert">
-        <span class="closebtn" id="closebtn" onclick="closeAlert(this)">&times;</span>
+        <span class="closebtnAlert" id="closebtnAlert" onclick="closeAlert(this)">&times;</span>
         <strong>Warning!</strong> Number and Special Characters are not allowed.
     </div>
+</section>
+<!--Encription and text converted Area-->
+<main class="mainContent">
     <section class="mainSection">
+        <!--Text Area-->
         <section class="textToEncript">
-            <div class="outButton">
-                <button type="button" class="out" id="out">Sign out</button>
-            </div>
-            <div class="textArea">
+            <section class="textArea">
                 <label for="userText"></label>
-                <textarea id="userText" class="userText" typeof="" placeholder="Type here..."
+                <textarea id="userText" class="userText" typeof="" placeholder="Type here..." onfocus="moveScreenUp()"
                           onfocusout="textValidation()"></textarea>
-            </div>
+            </section>
         </section>
+        <!--Buttons and Attention Area-->
         <section class="actionButtons">
             <div class="attentionArea">
                 <span class="material-symbols-outlined">error</span>
                 <label class="attentionText">only lower case letters</label>
             </div>
-            <div class="buttonsArea">
+            <section class="buttonsArea">
                 <form class="formButton" id="formButton">
                     <button type="button" class="encript" id="encript">Encript</button>
                     <button type="button" class="deEncript" id="deEncript" disabled>De-encript
                     </button>
                 </form>
-            </div>
+            </section>
         </section>
     </section>
+    <!--Secondary Section-->
     <section class="secondarySection" id="secondarySection">
-
+        <!--Converted Text Area-->
+        <section id="convertedAreaSection" class="convertedAreaSection">
+            <!--Image-->
+            <section id="imgContainer" class="imgContainer">
+                <div>
+                    <img src="../img/front-Img.webp" alt="" id="noTextImg" class="noTextImg">
+                    <p id="imgMainTitle" class="imgMainTitle">No Text was found</p>
+                    <p id="imgSubTitle" class="imgSubTitle">Please enter a text to be encripted o de-encripted</p>
+                </div>
+            </section>
+            <label for="convertedText"></label>
+            <textarea id="convertedText" class="convertedText" disabled></textarea>
+        </section>
+        <!--Copy Button Area-->
+        <section id="copyButtonSection" class="copyButtonSection">
+            <div class="attentionArea">
+                <span class="material-symbols-outlined">error</span>
+                <label class="attentionText">Click the button to copy text</label>
+            </div>
+            <form id="copyForm" class="copyForm">
+                <button type="button" id="copyButton" class="copyButton"> Copy Text</button>
+            </form>
+        </section>
     </section>
 </main>
 </body>

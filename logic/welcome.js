@@ -50,7 +50,7 @@ function encription() {
 
     let newMessage = '';
 
-    if (text == '') {
+    if (text === '') {
         alertMessage = 'Enter a text to encript';
         span = 'x';
         newMessage = `<span class="closebtn" onclick="closeAlert(this)">${span}</span>${alertMessage}`;
@@ -75,10 +75,11 @@ function encription() {
                 finalText += text[i];
             }
         }
+        // send the text to the final location
+        alert(finalText);
     }
 
-    // send the text to the final location
-    alert(finalText);
+
     cleanText();
 }
 

@@ -10,11 +10,15 @@ window.onload = function () {
     // button events
     let buttonEncript = document.getElementById('encript');
     let buttonDeEncript = document.getElementById('deEncript');
-    let signOutuser = document.getElementById('out');
+    let signOutuser = document.getElementById('signout');
+    let copy = document.getElementById('copyButton');
 
     buttonEncript.onclick = encription;
     buttonDeEncript.onclick = deEncription;
     signOutuser.onclick = signOut;
+    copy.onclick = copyText;
+
+    moveScreenUp();
 
 }
 
@@ -36,7 +40,9 @@ function textValidation() {
         enableAlert();
         cleanText();
     } else {
+        flag = false;
         encriptButton();
+
     }
 }
 
@@ -46,20 +52,20 @@ function encription() {
     let text = document.getElementById('userText').value.toLowerCase().trim();
     let finalText = "";
     let alertMessage = document.querySelector('.alert');
-    let span = document.querySelector('.closebtn');
+    let span = document.querySelector('.closebtnAlert');
 
     let newMessage = '';
 
     if (text === '') {
         alertMessage = 'Enter a text to encript';
         span = 'x';
-        newMessage = `<span class="closebtn" onclick="closeAlert(this)">${span}</span>${alertMessage}`;
+        newMessage = `<span class="closebtnAlert" onclick="closeAlert(this)">${span}</span>${alertMessage}`;
 
         document.querySelector('.alert').innerHTML = newMessage;
         enableAlert();
 
     } else {
-
+        hideImg();
         for (let i = 0; i < text.length; i++) {
             if (text[i] === 'a') {
                 finalText += 'ai';
@@ -74,9 +80,10 @@ function encription() {
             } else {
                 finalText += text[i];
             }
+            document.getElementById('convertedText').value = finalText;
+            moveScreenDown();
         }
         // send the text to the final location
-        alert(finalText);
     }
 
 
@@ -88,7 +95,7 @@ function encription() {
 function deEncription() {
     let text = document.getElementById('userText').value.toLowerCase().trim();
     let finalText = "";
-
+    hideImg();
     for (let i = 0; i < text.length; i++) {
         if (text[i] === 'a') {
             finalText += 'a';
@@ -108,16 +115,40 @@ function deEncription() {
         } else {
             finalText += text[i];
         }
+        // send the text to the final location
+        document.getElementById('convertedText').value = finalText;
+        moveScreenDown();
+        flag = false;
     }
-    // send the text to the final location
-    alert(finalText);
     cleanText();
 
 }
 
+//copyText
+function copyText() {
+    let text = document.getElementById('convertedText').value.trim();
+    let newMessage = '';
+
+    if (text === '') {
+        alertMessage = 'Enter a text to encript';
+        span = 'x';
+        newMessage = `<span class="closebtnAlert" onclick="closeAlert(this)">${span}</span>${alertMessage}`;
+
+        document.querySelector('.alert').innerHTML = newMessage;
+        enableAlert();
+        moveScreenUp();
+    } else {
+        navigator.clipboard.writeText(text);
+        showImg()
+        cleanText();
+        cleanConvertedText();
+        moveScreenUp();
+    }
+}
+
 //pageScrollDown
 function moveScreenDown() {
-    let interval = setTimeout(moveScreenDown(), 200);
+    let interval = setTimeout(moveScreenDown, 200);
 
     window.scrollBy({
         top: window.innerHeight,
@@ -131,10 +162,10 @@ function moveScreenDown() {
 
 //scrollPageUp
 function moveScreenUp() {
-    let interval = setTimeout(moveScreenUp(), 200);
+    let interval = setTimeout(moveScreenUp, 200);
 
     window.scrollBy({
-        top: 0,
+        top: -window.innerHeight,
         behavior: "smooth",
 
     });
@@ -146,10 +177,10 @@ function moveScreenUp() {
 
 //Enable button
 function enableButtonDeEncript() {
-    if (flag) {
-        let buttonDeEncript = document.getElementById('deEncript');
-        let buttonEncript = document.getElementById('encript');
+    let buttonDeEncript = document.getElementById('deEncript');
+    let buttonEncript = document.getElementById('encript');
 
+    if (flag) {
 
         buttonDeEncript.removeAttribute('disabled');
 
@@ -169,7 +200,7 @@ function enableButtonDeEncript() {
             )
         )
 
-        //fcus animation
+        //focus animation
         buttonDeEncript.addEventListener("focus", ev =>
             document.querySelector('.deEncript').animate(
                 [
@@ -191,6 +222,10 @@ function enableButtonDeEncript() {
 
 function encriptButton() {
     let buttonEncript = document.getElementById('encript');
+    let buttonDeEncript = document.getElementById('deEncript');
+
+    buttonEncript.removeAttribute('disabled');
+    buttonDeEncript.setAttribute('disabled', "true");
 
     //hover animation
     buttonEncript.addEventListener("mouseover", ev =>
@@ -230,16 +265,20 @@ function cleanText() {
     document.getElementById('userText').value = '';
 }
 
+function cleanConvertedText() {
+    document.getElementById('convertedText').value = '';
+}
+
 function cleanAlert() {
     let alertMessage = document.querySelector('.alert');
-    let span = document.querySelector('.closebtn');
+    let span = document.querySelector('.closebtnAlert');
 
     let newMessage = '';
 
     alertMessage = 'Warning! Number and Special Characters are not allowed.';
     span = 'x';
 
-    newMessage = `<span class="closebtn" onclick="closeAlert(this)">${span}</span>${alertMessage}`;
+    newMessage = `<span class="closebtnAlert" onclick="closeAlert(this)">${span}</span>${alertMessage}`;
 
     document.querySelector('.alert').innerHTML = newMessage;
 
@@ -265,5 +304,19 @@ function closeAlert(ele) {
 
 function signOut() {
     window.location.href = "../index.html";
+
+}
+
+function hideImg() {
+    let img = document.getElementById('imgContainer');
+
+    img.style.display = 'none';
+
+}
+
+function showImg() {
+    let img = document.getElementById('imgContainer');
+
+    img.style.display = 'flex';
 
 }

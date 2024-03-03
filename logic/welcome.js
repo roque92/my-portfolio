@@ -314,6 +314,9 @@ function hideImg() {
 
 }
 
+
+faijiiiijija
+
 function showImg() {
     let img = document.getElementById('imgContainer');
 
